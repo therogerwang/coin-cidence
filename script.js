@@ -1,23 +1,32 @@
 
 //console.log("script loaded");
 
-// Coinmarket Cap API Access
-var request = new XMLHttpRequest();
+function send_request(){
 
-request.open("GET","https://api.coinmarketcap.com/v2/listings/", true);
+    // CoinCompare API ACCESS
+    var request = new XMLHttpRequest();
 
-request.onload= function(){
+    request.open("GET","https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", true);
 
-    // GET data access
-    var data = JSON.parse(this.response);
+    request.onload= function(){
 
-    console.log(data);
+        // GET data access
+        var data = JSON.parse(this.response);
 
-    // data.forEach(thing => {
-    //     console.log(thing.data);
-    // });
+        console.log(data);
+        console.log("BTC PRICE = ", data.USD);
+        document.getElementById("BTC_price").innerHTML = data.USD;
 
+    }
+
+    request.send();
 
 }
 
-request.send();
+send_request();
+
+setInterval(function(){
+
+    send_request();
+    
+},10*1000);
