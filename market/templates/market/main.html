@@ -13,9 +13,9 @@
         
         <!-- A grey horizontal navbar that becomes vertical on small screens -->
         <nav class="navbar navbar-expand-sm bg-light">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <!-- LOGO -->
-                <a class="navbar-brand" href="#">Logo</a>
+                <a class="navbar-brand" href="#">Coin-cidence</a>
                 
                 <!-- Links -->
                 <li class="nav-item">
@@ -26,9 +26,23 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">NANO</a>
+
+            </ul>
+            <ul class="navbar-nav">
+
+                <li>
+                    <!-- Login/Logout button -->
+                
+                    {% if user.is_authenticated %}
+                    Hello {{ user.username }}, you have a uninvested fund of ${{ user.balance.usd_balance }}!
+                    <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
+                    {% else %}
+                    <p>You are not logged in</p>
+                    <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
+                    {% endif %}
+                
                 </li>
             </ul>
-        
         </nav>
         
         
@@ -40,12 +54,15 @@
             <p></p>
             
             <!-- Action Buttons -->
+
+            
+            
             <button type="button" class="btn btn-success">Buy</button>
             <button type="button" class="btn btn-danger">Sell</button>
         </div>
         
         
-        
+
 
         {% load static %}
         <script src="{% static "market/js/script.js" %}"></script>
