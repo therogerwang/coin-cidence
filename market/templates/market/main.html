@@ -47,10 +47,11 @@
 
     
     
-    <form action="market/transact/" method="post">
+    <form action="transact/" method="post">
+        {% csrf_token %}
         <div class="form-group">
             <label for="transactionQuantity">Quantity:</label>
-            <input id="transactionQuantity" type="text" class="col-sm-2 col-form-label col-form-label-lg"   placeholder="Enter desired quantity">
+            <input id="transactionQuantity" name = "transactionQuantity" type="text" class="col-sm-2 col-form-label col-form-label-lg"   placeholder="Enter desired quantity">
             <small class="form-text text-muted">All transactions are final</small>
         </div>
     
