@@ -47,19 +47,20 @@
 
     
     
-
-    
-    <form>
-        <p></p>
+    <form action="market/transact/" method="post">
         <div class="form-group">
             <label for="transactionQuantity">Quantity:</label>
-            <input type="text" class="col-sm-2 col-form-label col-form-label-lg"  id="transactionQuantity" placeholder="Enter desired quantity">
+            <input id="transactionQuantity" type="text" class="col-sm-2 col-form-label col-form-label-lg"   placeholder="Enter desired quantity">
             <small class="form-text text-muted">All transactions are final</small>
-          </div>
-        
-          <button type="button" class="btn btn-success">Buy</button> or
-          <button type="button" class="btn btn-danger">Sell</button>
+        </div>
+    
+        <button type="submit" value="Buy" class="btn btn-success">Buy</button> or
+        <button type="submit" value="Sell" class="btn btn-danger">Sell</button>
     </form>
+    
+
+
+
     
 </div>
 
