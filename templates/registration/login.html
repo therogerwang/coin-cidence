@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="mx-auto" style="width: 200px;">
 <h2>Login</h2>
+<p>Please login...</p>
+
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <button type="submit" class="btn btn-info">Login</button>
 </form>
 
+
+
+</div>
 {% endblock %}
