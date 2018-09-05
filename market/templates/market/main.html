@@ -39,15 +39,20 @@
 
 <!--Coin Status Jumbotron-->
 <div class="jumbotron text-center">
-    <h4>BTC Price (USD)</h4>
-    <h1 class="display-1" id="BTC_price">Loading price data...</h1>
-    <p></p>
-    
-    <!-- Action Buttons -->
-
+        
+        <h4>BTC Price (USD)</h4>
     
     
     <form action="transact/" method="post">
+        <input type="hidden" value="BTC" name="coin_type" />
+        <input type="hidden" value="0" name="transact_price" id="transact_price"/>
+        <h1 class="display-1" id="BTC_price">Loading price data...</h1>
+        
+        <p></p>
+        
+    <!-- Action Buttons -->
+
+    
         {% csrf_token %}
         <div class="form-group">
             <label for="transactionQuantity">Quantity:</label>
