@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import User, Coin
+from .models import User, Balance, Coin
 from .forms import QuantityForm
 from decimal import *
 
@@ -23,8 +23,10 @@ def transact(request):
     transactQuantity = Decimal(request.POST['transactionQuantity'])
     coin_type = request.POST['coin_type']
     transact_price = request.POST['transact_price']
-    print (transactQuantity, coin_type, transact_price)
+    user_id = request.POST['user_id']
     
+    print("USER =", )
+    print (transactQuantity, coin_type, transact_price)
     
     ##TEMP SOLUTION BELOW
     try:
