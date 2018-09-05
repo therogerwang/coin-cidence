@@ -26,14 +26,11 @@ def transact(request):
     print (transactQuantity, coin_type, transact_price)
     
     
-    
+    ##TEMP SOLUTION BELOW
     try:
         #BUY
         print ( request.POST['buy'])
-        
-        
-        
-        
+
         
     except:
         #SELL
