@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import User, Balance, Coin
@@ -22,21 +22,29 @@ def transact(request):
 
     transactQuantity = Decimal(request.POST['transactionQuantity'])
     coin_type = request.POST['coin_type']
-    transact_price = request.POST['transact_price']
+    transact_price = Decimal(request.POST['transact_price'])
     user_id = request.POST['user_id']
     
-    print("USER =", )
+    print("USER =", user_id )
     print (transactQuantity, coin_type, transact_price)
     
     ##TEMP SOLUTION BELOW
     try:
         #BUY
         print ( request.POST['buy'])
+        cost = transactQuantity * transact_price
+        user_balance = get_object_or_404(Balance,id=user_id)
+        print ("Balance gotten = ", user_balance)
+        print("New balance",user_balance.usd_balance - cost)
+        user_balance.update_usd_balance(user_balance.usd_balance - cost)
+        user_balance.save()
 
         
     except:
         #SELL
         print ( request.POST['sell'])
+        
+        
     
     print("After")
     

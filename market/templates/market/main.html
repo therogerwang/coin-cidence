@@ -69,10 +69,17 @@
     </form>
     
 
-    <p>Current BTC balance: user.balance.coi</p>
+    
 
     
 </div>
+
+
+<p>Current BTC balances: </p>
+
+{% for currency in user.coin_set.all %}
+<p>{{currency.coin_name}} :  {{currency.quantity}}</p>
+{% endfor %}
 
 
 
