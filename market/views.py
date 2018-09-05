@@ -9,10 +9,18 @@ def index(request):
     return render(request, 'market/main.html',)
     
     
-
+#request arrives, decides what to do
 def transact(request):
     
     print ( request.POST['transactionQuantity'])
+    
+    try:
+        print ( request.POST['buy'])
+    except:
+        print ( request.POST['sell'])
+    
+    print("After")
+    
     
     return HttpResponseRedirect(reverse('index'))
     
