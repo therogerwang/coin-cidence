@@ -19,7 +19,6 @@ def transact(request):
     """ Decides what happens with the Transact (buy/sell) POST request when it 
     is received """
     
-
     transactQuantity = Decimal(request.POST['transactionQuantity'])
     coin_type = request.POST['coin_type']
     transact_price = Decimal(request.POST['transact_price'])
@@ -37,8 +36,6 @@ def transact(request):
         # subtract cost from usd balance
         cost = transactQuantity * transact_price
         user_balance = get_object_or_404(Balance,id=user_id)
-        # print ("Balance gotten = ", user_balance)
-        # print("New balance",user_balance.usd_balance - cost)
         user_balance.update_usd_balance(user_balance.usd_balance - cost)
         user_balance.save()
         
@@ -49,6 +46,14 @@ def transact(request):
         #SELL
         print("SELLING")
         
+        #Add revenue to usd balance
+        revenue = transactQuantity * transact_price
+        user_balance = get_object_or_404(Balance,id=user_id)
+        user_balance.update_usd_balance(user_balance.usd_balance + revenue)
+        user_balance.save()
+        
+        #Subtract from coin quantity
+        
     else:
         print("RAISE EXCEPTION HERE")
     
@@ -56,7 +61,6 @@ def transact(request):
         
     
     print("After")
-    
     
     return HttpResponseRedirect(reverse('index'))
     
