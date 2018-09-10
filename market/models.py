@@ -27,3 +27,7 @@ class Coin(models.Model):
     
     def __str__(self):
         return str(self.owner) + " 's " + self.coin_name + " with quantity of " + str(self.quantity)
+    
+    def update_coin_quantity(self, new_balance):
+        """Updates the coin balance to the inputted balance"""
+        self.quantity = new_balance

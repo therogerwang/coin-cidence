@@ -24,25 +24,34 @@ def transact(request):
     coin_type = request.POST['coin_type']
     transact_price = Decimal(request.POST['transact_price'])
     user_id = request.POST['user_id']
+    submit_type = request.POST['submit_type']
     
     print("USER =", user_id )
     print (transactQuantity, coin_type, transact_price)
     
-    ##TEMP SOLUTION BELOW
-    try:
+    
+    if submit_type == 'buy':
         #BUY
-        print ( request.POST['buy'])
+        print ("BUYING")
+        
+        # subtract cost from usd balance
         cost = transactQuantity * transact_price
         user_balance = get_object_or_404(Balance,id=user_id)
-        print ("Balance gotten = ", user_balance)
-        print("New balance",user_balance.usd_balance - cost)
+        # print ("Balance gotten = ", user_balance)
+        # print("New balance",user_balance.usd_balance - cost)
         user_balance.update_usd_balance(user_balance.usd_balance - cost)
         user_balance.save()
-
         
-    except:
+        # add new coin quantity
+        # user_balance = get_object_or_404(Balance, USE FILTER HERE SOMEHOW id=user_id)################START HERE NEXT TIME
+    
+    elif submit_type == 'sell':
         #SELL
-        print ( request.POST['sell'])
+        print("SELLING")
+        
+    else:
+        print("RAISE EXCEPTION HERE")
+    
         
         
     
