@@ -10,9 +10,9 @@ The purpose of this application is to...
 
 ## How to Get Started
 
-Start server by executing 'py manage.py runserver' in root folder.
-Web application will be accesssible at http://127.0.0.1:8000/accounts/login
-Create an account and start using from there!
+1. Start server by executing 'py manage.py runserver' in root folder.
+2. Web application will be accesssible at http://127.0.0.1:8000/accounts/login
+3. Create an account and start using from there!
 
 
 Administration options at http://127.0.0.1:8000/admin/
@@ -30,6 +30,7 @@ Django
 * [Python 3](https://www.python.org/) - Language project written in
 * [Django 2.1](https://www.djangoproject.com/) - The web framework used
 * [Bootstrap v4.13](https://getbootstrap.com/) - Front-end framework
+* [CoinCompare API](https://www.cryptocompare.com/api/) - API used to retrieve live market prices
 
 
 
