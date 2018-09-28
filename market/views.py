@@ -52,7 +52,12 @@ def transact(request):
         user_balance.save()
         
         # add new coin quantity
-        # user_balance = get_object_or_404(Balance, USE FILTER HERE SOMEHOW id=user_id)################START HERE NEXT TIME
+        username = user_balance.username
+        # coin_balance = Coin.objects.filter(owner__username__exact = user_id)
+        coin_balance = get_object_or_404(Coin, owner__username__exact = username)
+        coin_balance.update_coin_quantity( coin_balance.quantity + transactQuantity )
+        print(coin_balance)
+        coin_balance.save()
     
     elif submit_type == 'sell':
         #SELL
@@ -65,6 +70,10 @@ def transact(request):
         user_balance.save()
         
         #Subtract from coin quantity
+        username = user_balance.username
+        coin_balance = get_object_or_404(Coin, owner__username__exact = username)
+        coin_balance.update_coin_quantity( coin_balance.quantity - transactQuantity )
+        coin_balance.save()
         
     else:
         print("RAISE EXCEPTION HERE")

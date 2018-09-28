@@ -43,7 +43,7 @@
         <h4>BTC Price (USD)</h4>
     
     
-    <form action="transact/" method="post">
+    <form action="{% url 'transact' %}" method="post">
         <input type="hidden" value="BTC" name="coin_type" id="coin_type" />
         <input type="hidden" value="0" name="transact_price" id="transact_price"/>
         <input type="hidden" value={{user.id}} name="user_id" />
