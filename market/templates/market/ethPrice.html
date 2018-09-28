@@ -43,7 +43,7 @@
         <h4>ETH Price (USD)</h4>
     
     
-    <form action="transact/" method="post">
+    <form action="{% url 'transact' %}" method="post">
         <input type="hidden" value="ETH" name="coin_type" id="coin_type"/>
         <input type="hidden" value="0" name="transact_price" id="transact_price"/>
         <input type="hidden" value={{user.id}} name="user_id" />
@@ -75,7 +75,7 @@
 </div>
 
 
-<p>Current BTC balances: </p>
+<p>Current Coin balances: </p>
 
 {% for currency in user.coin_set.all %}
 <p>{{currency.coin_name}} :  {{currency.quantity}}</p>
