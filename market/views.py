@@ -12,8 +12,20 @@ getcontext().prec = 8
 
 
 def index(request):
-    return render(request, 'market/main.html',)
+    # return render(request, 'market/main.html')
+    return HttpResponseRedirect(reverse('btcPrice'))
     
+def btcPrice(request):
+    return render(request, 'market/main.html')
+    
+    
+def ethPrice(request):
+    return render(request, 'market/ethPrice.html')
+    
+# def nanoPage(request):
+#     return render(request, 'market/main.html')
+
+
 
 def transact(request):
     """ Decides what happens with the Transact (buy/sell) POST request when it 
