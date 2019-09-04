@@ -21,13 +21,13 @@ Administration options at http://127.0.0.1:8000/admin/
 ### Prerequisites
 
 ```
-Python 3
-Django
+Python 3.7+
+Django 2.1
 ```
 
 ## Built With
 
-* [Python 3](https://www.python.org/) - Main backend language
+* [Python 3.7](https://www.python.org/) - Main backend language
 * [Django 2.1](https://www.djangoproject.com/) - The web framework used
 * [Bootstrap v4.13](https://getbootstrap.com/) - Front-end framework
 * [CoinCompare API](https://www.cryptocompare.com/api/) - API used to retrieve live market prices
